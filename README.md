@@ -1,16 +1,50 @@
-# React + Vite
+# Mridang 2025 – Official Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the source code for the official website of **Mridang 2025**, the annual cultural fest of the **Indian Institute of Information Technology (IIIT) Una)**.
 
-Currently, two official plugins are available:
+This year's theme is a **cultural and divine experience**, channeling timeless cultural arts through the kaleidoscopic lens of a **groovy retro past**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Dynamic Event Slider:** A 3D-style card slider on the homepage to browse all events.
+- **Detailed Event Pages:** Each event has a dedicated, auto-generated page with full descriptions.
+- **Multi-Page Structure:** Dedicated pages for Coordinators, Sponsors, Gallery, and Contact.
+- **Scrolling Marquees:** Animated infinite scrollers for *Past Performers* and *Past Sponsors*.
+- **Hierarchical Sponsor Layout:** Renders sponsors dynamically (Title, Platinum, Gold, Partner).
+- **Dynamic Coordinator Team:** Includes faculty and a structured student team.
+- **Contact Page:** Key contacts, social links, and an embedded Google Map.
+- **Floating Register Button:** Site-wide call-to-action button.
+- **Fully Responsive:** Built for all screen sizes.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- Vite  
+- React  
+- React Router  
+- Tailwind CSS  
+- React Icons  
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+Node.js
+
+### Installation
+```bash
+git clone https://github.com/your-username/mridang-website.git
+cd mridang-website
+npm install
+npm run dev
+```
+
+### Open Browser
+http://localhost:5173/
+
+---
+© 2025 IIIT Una • Mridang Cultural Fest
