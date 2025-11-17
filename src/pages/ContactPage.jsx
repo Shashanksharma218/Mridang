@@ -34,7 +34,7 @@ const contacts = [
       {
         name: "Chirag Jain",
         phone: "+91 80855 09019",
-        email: "23217@iiitu.ac.in",
+        email: "23218@iiitu.ac.in",
       },
       {
         name: "Tarsem Gulab", // (Replace with real name)
@@ -50,6 +50,11 @@ const contacts = [
         name: "Abhishek",
         phone: "+91 94670  20263",
         email: "23102@iiitu.ac.in",
+      },
+            {
+        name: "Devansh Gupta",
+        phone: "+91 97925 04543",
+        email: "23220@iiitu.ac.in",
       },
     ],
   },
