@@ -8,7 +8,7 @@ import Events from "./components/Events";
 import Schedule from "./components/Schedule";
 // import Coordinators from "./components/Coordinators"; // No longer needed in Home
 import Gallery from "./components/Gallery";
-// import Sponsors from "./components/Sponsors";
+import Sponsors from "./components/Sponsors";
 import PastPerformers from "./components/PastPerformers"; // You added this
 import GalleryPage from "./pages/GalleryPage";
 import EventPage from "./pages/EventPage";
@@ -18,8 +18,9 @@ import Divider from "./components/Divider";
 
 // --- IMPORT YOUR PAGES ---
 import CoordinatorsPage from "./pages/CoordinatorsPage";
-// import SponsorsPage from "./pages/SponsorsPage";
+import SponsorsPage from "./pages/SponsorsPage";
 import ContactPage from "./pages/ContactPage";
+import CurrentArtists from "./components/CurrentArtists";
 
 // --- YOUR HOME COMPONENT ---
 function Home() {
@@ -50,9 +51,11 @@ function Home() {
       <Divider />
       <Gallery />
       <Divider />
+      <CurrentArtists />
+      <Divider />
       <PastPerformers />
-      {/* <Divider /> */}
-      {/* <Sponsors show="platinum" />  */}
+      <Divider />
+      <Sponsors show="platinum" /> 
       <Footer />
     </>
   );
@@ -107,7 +110,7 @@ function App() {
           <Route path="/events/:eventSlug" element={<EventPage />} />
           <Route path="/gallery" element={<GalleryPage />} />
           <Route path="/coordinators" element={<CoordinatorsPage />} />
-          {/* <Route path="/sponsors" element={<SponsorsPage />} /> */}
+          <Route path="/sponsors" element={<SponsorsPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </div>
