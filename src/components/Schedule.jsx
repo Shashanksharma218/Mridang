@@ -8,38 +8,35 @@ const festivalSchedule = [
   {
     day: "Day 1",
     events: [
-      { time: "2:00 - 2:30 PM", name: "Mridang Inauguration" },
-      { time: "2:30 - 3:15 PM", name: "Flash Mob" },
-      { time: "3:45 - 4:00 PM", name: "Revealing Ceremony" },
-      { time: "4:00 - 5:30 PM", name: "Raag Samarpan" },
-      { time: "5:30 - 7:00 PM", name: "Skit" },
-      { time: "7:00 - 8:00 PM", name: "Kavi Sammelan" },
-      { time: "8:15 - 9:30 PM", name: "Qawwali" },
-      { time: "10:15 - 11:30 PM", name: "EDM Night" },
+      { time: "1:30 - 2:00 PM", name: "Mridang Inauguration" },
+      { time: "2:00 - 2:30 PM", name: "Flash Mob" },
+      { time: "2:30 - 3:00 PM", name: "Revealing Ceremony" },
+      { time: "3:00 - 4:30 PM", name: "Rap Showcase" },
+      { time: "4:30 - 5:30 PM", name: "Kavi Sammelan" },
+      { time: "5:30 - 6:30 PM", name: "Skit" },
+      { time: "6:30 - 9:00 PM", name: "Band" },
+      { time: "9:30 - 11:30 PM", name: "EDM Night" },
     ],
   },
   {
     day: "Day 2",
     events: [
-      { time: "9:00 - 11:30 AM", name: "Mystery Detective Battle" },
-      { time: "11:30 - 1:00 PM", name: "MemeFest" },
-      { time: "2:00 - 4:00 PM", name: "Ad-War-Tize" },
-      { time: "2:00 - 4:30 PM", name: "Student Stalls" },
-      { time: "4:30 - 6:30 PM", name: "Dancers' Den" },
-      { time: "7:00 - 8:30 PM", name: "Fashion Show" },
-      { time: "9:00 - 9:15 PM", name: "Filler Event" },
-      { time: "9:30 - 11:30 PM", name: "Local Artist 1" },
+      { time: "9:00 AM onwards", name: "Art Exhibition" },
+      { time: "12:30 PM onwards ", name: "Student Stalls" },
+      { time: "12:30 - 2:00 PM", name: "Raag Samarpan" },
+      { time: "2:00 - 4:00 PM", name: "Battle of Bands" },
+      { time: "4:00 - 5:30 PM", name: "Dancers' Den" },
+      { time: "5:30 - 6:30 PM", name: "Mehfil-e-Mridang" },
+      { time: "6:30 - 11:30 PM", name: "Main Artist" },
     ],
   },
   {
     day: "Day 3",
     events: [
-      { time: "11:00 AM onwards", name: "FIFA" },
-      { time: "11:00 AM onwards", name: "Art Exhibition" },
-      { time: "4:15 - 5:15 PM", name: "Rap Showcase" },
-      { time: "5:15 - 7:30 PM", name: "Battle of Bands" },
-      { time: "7:30 - 8:30 PM", name: "Local Artist 2" },
-      { time: "9:00 - 11:30 PM", name: "Main Artist" },
+      { time: "10:30 - 1:00 PM", name: "Murder Mystery" },
+      { time: "2:00 - 4:00 PM", name: "Ad-War-Tize" },
+      { time: "2:00 - 6:00 PM", name: "FIFA" },
+      { time: "6:00 - 8:00 PM", name: "Plot Twist" },
     ],
   },
 ];
@@ -97,9 +94,8 @@ export default function Schedule() {
         })}
       </div>
 
-      {/* CONTENT WRAPPER (NO BLUR HERE ANYMORE) */}
+      {/* CONTENT WRAPPER */}
       <div className="relative z-10">
-
         {/* Section Header */}
         <div className="text-center mb-5 space-y-2">
           <p className="uppercase tracking-[0.4em] text-xs text-[#8a5a3d]/70">
@@ -109,7 +105,8 @@ export default function Schedule() {
             Festival Schedule
           </h2>
           <p className="text-[#704832] max-w-2xl mx-auto font-serif text-base">
-            Three days of cultural splendor, unfurling memories of tradition and celebration
+            Three days of cultural splendor, unfurling memories of tradition and
+            celebration
           </p>
         </div>
 
@@ -118,7 +115,6 @@ export default function Schedule() {
           {festivalSchedule.map((schedule, idx) => (
             <React.Fragment key={idx}>
               <div className="relative flex justify-center items-center md:scale-115 mb-0 md:mb-6 -mt-2 md:mt-0">
-
                 {/* Scroll Image */}
                 <img
                   src={scroll}
@@ -132,32 +128,21 @@ export default function Schedule() {
                     {schedule.day}
                   </h3>
 
-                  {/* ONLY EVENTS ARE BLURRED */}
-                  <div className="w-full max-w-[280px] text-[#704832] text-[13px] leading-[1.55] blur-[2.5px] opacity-80 scale-[.98]">
-
+                  {/* Events List (Blur Removed) */}
+                  <div className="w-full max-w-[280px] text-[#704832] text-[13px] leading-[1.55]">
                     {schedule.events.map((event, eidx) => (
                       <div
                         key={eidx}
                         className="flex justify-between mb-[2px] border-b border-[#00000015] pb-[1px]"
                       >
-                        <span className="text-right opacity-70 flex-shrink-0">
+                        <span className="text-right opacity-80 shrink-0">
                           {event.time}
                         </span>
-                        <span className="ml-3 text-left opacity-70">
+                        <span className="ml-3 text-left">
                           {event.name}
                         </span>
                       </div>
                     ))}
-                  </div>
-
-                </div>
-
-                {/* COMING SOON OVERLAY PER SCROLL */}
-                <div className="absolute inset-0 z-20 flex items-center justify-center">
-                  <div className="bg-[#f4ebd7] backdrop-blur-sm p-3 sm:p-4 rounded-md shadow-md text-center">
-                    <p className="text-lg sm:text-xl font-heading text-[#5C1E11]">
-                      Coming Soon
-                    </p>
                   </div>
                 </div>
               </div>
@@ -175,7 +160,6 @@ export default function Schedule() {
             </React.Fragment>
           ))}
         </div>
-
       </div>
     </section>
   );

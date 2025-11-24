@@ -10,96 +10,90 @@ import { sponsors } from "../assets/SponsorLogo/sponsorImport";
 const placeholderLogo = "https://placehold.co/400x300/f8f3e7/704832?text=Sponsor+Logo&font=serif";
 
 
-// --- 1. UPDATED CURRENT SPONSORS (with website) ---
+// --- 1. CURRENT SPONSORS ---
 const currentSponsors2025 = [
-  { name: "Main Title Sponsor", logo: placeholderLogo, level: "title", website: "https://www.google.com" }, // <-- ADDED
-  { name: "Platinum Sponsor 1", logo: placeholderLogo, level: "platinum", website: "https://www.google.com" }, // <-- ADDED
-  { name: "Platinum Sponsor 2", logo: placeholderLogo, level: "platinum", website: "https://www.google.com" }, // <-- ADDED
-  { name: "Gold Sponsor 1", logo: placeholderLogo, level: "gold", website: "https://www.google.com" }, // <-- ADDED
-  { name: "Gold Sponsor 2", logo: placeholderLogo, level: "gold" }, // <-- No website, won't be a link
-  { name: "Gold Sponsor 3", logo: placeholderLogo, level: "gold", website: "https://www.google.com" }, // <-- ADDED
-  { name: "Our Partner 1", logo: placeholderLogo, level: "partner", website: "https://www.google.com" }, // <-- ADDED
-  { name: "Our Partner 2", logo: placeholderLogo, level: "partner" }, // <-- No website
+  { name: "Brand Integration", logo: sponsors.hunar, level: "platinum", website: "https://www.google.com" },
+  { name: "Curated By", logo: placeholderLogo, level: "platinum" },
+  { name: "Powered By", logo: sponsors.unstop, level: "gold", website: "https://www.unstop.com" },
+  { name: "Our Partner 1", logo: placeholderLogo, level: "partner", website: "https://www.google.com" },
+  { name: "Our Partner 2", logo: placeholderLogo, level: "partner" },
 ];
 
-// --- 2. UPDATED PAST SPONSORS (with website) ---
+// --- 2. PAST SPONSORS ---
 const pastSponsors2024 = [
-  { name: "State Bank of India", logo: sponsors.stateBankOfIndia, website: "https://www.onlinesbi.sbi" }, // <-- ADDED
-  { name: "HPMC", logo: sponsors.hpmc, website: "https://hpmc.in" }, // <-- ADDED
-  { name: "Kwikpic", logo: sponsors.kwikpic, website: "https://kwikpic.in" }, // <-- ADDED
-  { name: "Mugafi", logo: sponsors.mugafi }, // <-- No website
-  { name: "Chai Booze", logo: sponsors.chaiBooze }, // <-- No website
-  { name: "Chai Sutta Bar", logo: sponsors.chaiSuttaBar, website: "https://chaisuttabarindia.com" }, // <-- ADDED
-  { name: "Iskcon Chandigarh", logo: sponsors.iskconChandigarh, website: "https://www.iskconchandigarh.com" }, // <-- ADDED
-  { name: "Mr Burger", logo: sponsors.mrBurger }, // <-- No website
-  { name: "Potato Hut", logo: sponsors.potatoHut }, // <-- No website
-  { name: "The OG Vibe", logo: sponsors.theOGVibe }, // <-- No website
+  { name: "State Bank of India", logo: sponsors.stateBankOfIndia, website: "https://www.onlinesbi.sbi" },
+  { name: "HPMC", logo: sponsors.hpmc, website: "https://hpmc.in" },
+  { name: "Kwikpic", logo: sponsors.kwikpic, website: "https://kwikpic.in" },
+  { name: "Mugafi", logo: sponsors.mugafi },
+  { name: "Chai Booze", logo: sponsors.chaiBooze },
+  { name: "Chai Sutta Bar", logo: sponsors.chaiSuttaBar, website: "https://chaisuttabarindia.com" },
+  { name: "Iskcon Chandigarh", logo: sponsors.iskconChandigarh, website: "https://www.iskconchandigarh.com" },
+  { name: "Mr Burger", logo: sponsors.mrBurger },
+  { name: "Potato Hut", logo: sponsors.potatoHut },
+  { name: "The OG Vibe", logo: sponsors.theOGVibe },
 ];
 
 
-// --- 3. UPGRADED "SMART" SPONSOR CARD ---
-// This component now conditionally renders an <a> tag
+// --- 3. UPDATED SPONSOR CARD (Name Above Logo) ---
 const SponsorCard = ({ sponsor }) => {
   let sizeClasses = "";
-  let textClasses = "text-xs md:text-sm"; // Default text size
+  let textClasses = "text-xs md:text-sm";
 
   switch (sponsor.level) {
     case 'title':
-      sizeClasses = "h-40 md:h-56 max-w-[350px]"; // Largest
+      sizeClasses = "h-40 md:h-56 max-w-[350px]";
       textClasses = "text-sm md:text-base";
       break;
     case 'platinum':
-      sizeClasses = "h-36 md:h-48 max-w-[300px]"; // Large
+      sizeClasses = "h-36 md:h-48 max-w-[300px]";
       textClasses = "text-sm md:text-base";
       break;
     case 'gold':
-      sizeClasses = "h-32 md:h-40 max-w-[250px]"; // Medium
+      sizeClasses = "h-32 md:h-40 max-w-[250px]";
       break;
     case 'partner':
-      sizeClasses = "h-28 md:h-32 max-w-[200px]"; // Small
+      sizeClasses = "h-28 md:h-32 max-w-[200px]";
       break;
     default:
-      // This will apply to all PAST sponsors in the marquee
       sizeClasses = "h-32 md:h-40 max-w-[250px]";
       break;
   }
 
-  // This is the content (image + name)
   const cardContent = (
     <>
-      <div className={`flex items-center justify-center mb-4 ${sizeClasses}`}>
+      {/* NAME IS NOW FIRST (ABOVE) */}
+      <p
+        className={`text-[#704832] font-serif text-center opacity-80 mb-3 ${textClasses}`}
+      >
+        {sponsor.name}
+      </p>
+      
+      {/* LOGO IS NOW SECOND (BELOW) */}
+      <div className={`flex items-center justify-center ${sizeClasses}`}>
         <img
           src={sponsor.logo}
           alt={sponsor.name}
           className="h-full w-auto object-contain rounded-lg"
         />
       </div>
-      <p
-        className={`text-[#704832] font-serif text-center opacity-80 ${textClasses}`}
-      >
-        {sponsor.name}
-      </p>
     </>
   );
 
-  // Define common classes
   const commonClasses = "flex-shrink-0 flex flex-col items-center justify-center px-4 transition-transform";
 
-  // If a website URL exists, wrap the content in a link
   if (sponsor.website) {
     return (
       <a
         href={sponsor.website}
-        target="_blank" // Opens in a new tab
-        rel="noopener noreferrer" // Security best practice
-        className={`${commonClasses} hover:scale-105`} // Add hover effect only to links
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`${commonClasses} hover:scale-105`}
       >
         {cardContent}
       </a>
     );
   }
 
-  // If no website, just render the <div>
   return (
     <div className={commonClasses}>
       {cardContent}
@@ -108,8 +102,7 @@ const SponsorCard = ({ sponsor }) => {
 };
 
 
-// --- 4. NEW HIERARCHICAL LAYOUT COMPONENT ---
-// (This component remains unchanged from before)
+// --- 4. LAYOUT ---
 const CurrentSponsorsLayout = ({ sponsors }) => {
   const titleSponsors = sponsors.filter(s => s.level === 'title');
   const platinumSponsors = sponsors.filter(s => s.level === 'platinum');
@@ -119,40 +112,32 @@ const CurrentSponsorsLayout = ({ sponsors }) => {
   return (
     <div className="flex flex-col items-center pt-6 pb-10">
       
-      {/* Title Sponsor */}
       {titleSponsors.length > 0 && (
-        <div className="mb-10 w-full">
-          <h3 className="text-center text-3xl font-heading text-[#5C1E15] mb-8">Title Sponsor</h3>
+        <div className="mb-12 w-full">
           <div className="flex justify-center gap-12">
             {titleSponsors.map(s => <SponsorCard key={s.name} sponsor={s} />)}
           </div>
         </div>
       )}
 
-      {/* Platinum Sponsors */}
       {platinumSponsors.length > 0 && (
-        <div className="mb-10 w-full">
-          <h3 className="text-center text-3xl font-heading text-[#5C1E15] mb-8">Platinum Sponsors</h3>
+        <div className="mb-12 w-full">
           <div className="flex flex-wrap justify-center gap-12 md:gap-16">
             {platinumSponsors.map(s => <SponsorCard key={s.name} sponsor={s} />)}
           </div>
         </div>
       )}
 
-      {/* Gold Sponsors */}
       {goldSponsors.length > 0 && (
-        <div className="mb-10 w-full">
-          <h3 className="text-center text-2xl font-heading text-[#5C1E15] mb-8">Gold Sponsors</h3>
+        <div className="mb-12 w-full">
           <div className="flex flex-wrap justify-center gap-10 md:gap-14">
             {goldSponsors.map(s => <SponsorCard key={s.name} sponsor={s} />)}
           </div>
         </div>
       )}
 
-      {/* Other Sponsors */}
       {otherSponsors.length > 0 && (
         <div className="w-full">
-          <h3 className="text-center text-2xl font-heading text-[#5C1E15] mb-8">Our Partners</h3>
           <div className="flex flex-wrap justify-center gap-8 md:gap-12">
             {otherSponsors.map(s => <SponsorCard key={s.name} sponsor={s} />)}
           </div>
@@ -163,15 +148,13 @@ const CurrentSponsorsLayout = ({ sponsors }) => {
 };
 
 
-// --- 5. MAIN SPONSORS COMPONENT (PUTTING IT ALL TOGETHER) ---
-// (This component remains unchanged from before)
+// --- 5. MAIN SPONSORS COMPONENT ---
 const Sponsors = ({ show }) => {
   const [view, setView] = useState("current");
 
-  // --- HOMEPAGE VIEW (Title + Platinum only) ---
   if (show === "platinum") {
     const homeSponsors = currentSponsors2025.filter(
-      (s) => s.level === "title" || s.level === "platinum"
+      (s) => s.level === "title" || s.level === "platinum" || s.level === "gold"
     );
 
     if (homeSponsors.length === 0) {
@@ -221,7 +204,6 @@ const Sponsors = ({ show }) => {
     );
   }
 
-  // --- FULL SPONSORS PAGE VIEW (with Toggle) ---
   const duplicatedPastSponsors = [...pastSponsors2024, ...pastSponsors2024, ...pastSponsors2024];
 
   return (
